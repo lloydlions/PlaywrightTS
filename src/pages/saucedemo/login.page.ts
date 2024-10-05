@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+require('dotenv').config();
 
 export class SauceDemoLoginPage {
   private page: Page;
@@ -14,7 +15,7 @@ export class SauceDemoLoginPage {
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto(process.env.BASE_URL!);
   }
 
   async login(username: string, password: string) {
